@@ -55,8 +55,8 @@ def get_vehicle_state():
     print(" Mode: %s" % vehicle.mode.name)    # settable
     #print(" Armed: %s" % vehicle.armed)    # settable
 
-vehicle.parameters['PLND_ENABLED'] = 1
-vehicle.parameters['PLND_TYPE'] = 2 # Mavlink landing mode
+#vehicle.parameters['PLND_ENABLED'] = 2
+#vehicle.parameters['PLND_TYPE'] = 1 # Mavlink landing mode
 while(1):
     get_vehicle_state()
     if 1850<=vehicle.channels['5']<=1950:
@@ -69,7 +69,7 @@ while(1):
         #http://ardupilot.org/copter/docs/parameters.html#ch7-opt-channel-7-option
 
         #then override channel 7 to go Precision Loiter
-        vehicle.channels.overrides['7']=1900
+        #vehicle.channels.overrides['7']=1900
         send_land_message(0,0)
 
     else:

@@ -45,19 +45,12 @@ def send_land_message(x, y):
     vehicle.send_mavlink(msg)
     vehicle.flush()
 
-vehicle = connect("/dev/ttyACM2", baud=57600, wait_ready=True)
+vehicle = connect("/dev/ttyACM0", baud=57600, wait_ready=True)
 craft.vehicle.parameters['PLND_ENABLED'] = 1
 craft.vehicle.parameters['PLND_TYPE'] = 1 # Mavlink landing mode
 while(1):
     if 1450<=vehicle.channels['5']<=1550:
         vehicle.channels.overrides['7']=1850
-        #Channel override code.
-
-
-        #Select which function is performed when CH7 is above 1800 pwm
-        #http://ardupilot.org/copter/docs/parameters.html#ch7-opt-channel-7-option
-
-        #then override channel 7 to go Precision Loiter
 
     else:
         print("Clear all overrides")

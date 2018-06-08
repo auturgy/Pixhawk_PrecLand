@@ -1,5 +1,8 @@
+
+
+
 Useful information and links for doing the landing with dronekit.
-## dronekit function.
+# NOTE dronekit function.
 ```if args.fakerangefinder:
     # Following are for mavlink based rangefinder (not needed for 3.5-rc2+)
     craft.vehicle.parameters['RNGFND_TYPE'] = 10
